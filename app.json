@@ -7,9 +7,10 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/ontimelogo.png",
+      "image": "./assets/rsz_ontimelogo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000"
+      "backgroundColor": "#000",
+      "width": "200"
     },
     "assetBundlePatterns": [
       "**/*"
