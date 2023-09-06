@@ -135,7 +135,7 @@ const Login = ({ navigation }) => {
                   fontSize: 16,
                   color: COLORS.primary,
                   fontWeight: "bold",
-                  marginLeft: 110,
+                  marginLeft: wp("27.4%"),
                   bottom: 1,
                 }}
               >
