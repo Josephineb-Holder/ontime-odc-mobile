@@ -1,10 +1,10 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../Constants/Colors";
 import Button from "../components/Button";
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <LinearGradient style={{ flex: 1 }} colors={[COLORS.gray, COLORS.black]}>
       <View style={{ flex: 1 }}>
@@ -103,7 +103,36 @@ const Welcome = () => {
                 Explore more by joining us.
               </Text>
             </View>
-            <Button title="Join Now" />
+            <Button
+              title="Join Now"
+              onPress={() => navigation.navigate("Signup")}
+              filled
+              style={{ marginTop: 22, width: "100%" }}
+            />
+
+            <View
+              style={{
+                flexDirection: "row",
+                marginTop: 50,
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ fontSize: 16, color: COLORS.white }}>
+                Have an account?
+              </Text>
+              <Pressable onPress={() => navigation.navigate("Login")}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: COLORS.primary,
+                    fontWeight: "bold",
+                    marginLeft: 10,
+                  }}
+                >
+                  Login
+                </Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>

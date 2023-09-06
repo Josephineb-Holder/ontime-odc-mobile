@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Login, Signup, Welcome } from "./Screens/index";
@@ -20,7 +19,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Sign Up"
+          name="Signup"
           component={Signup}
           options={{ headerShown: false }}
         />
@@ -28,16 +27,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#383838",
-  },
-  text: {
-    color: "#fff",
-    fontSize: 20,
-  },
-});
