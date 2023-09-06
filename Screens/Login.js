@@ -129,7 +129,7 @@ const Login = ({ navigation }) => {
             />
             <Text>Remember Me.</Text>
 
-            <Pressable onPress={() => navigation.navigate("ForgotPassword")}>
+            <Pressable onPress={() => navigation.navigate("Forgot Password")}>
               <Text
                 style={{
                   fontSize: 16,
