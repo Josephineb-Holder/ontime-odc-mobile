@@ -127,7 +127,7 @@ const Login = ({ navigation }) => {
                 fontSize: 16,
                 color: COLORS.primary,
                 fontWeight: "bold",
-                marginLeft: 95,
+                marginLeft: 110,
                 bottom: 1,
               }}
             >
@@ -142,7 +142,7 @@ const Login = ({ navigation }) => {
               marginTop: 18,
               marginBottom: 4,
               width: "100%",
-              right: 338,
+              right: 353,
               top: 50,
             }}
           />
