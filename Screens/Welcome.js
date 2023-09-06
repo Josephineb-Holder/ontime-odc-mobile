@@ -2,12 +2,16 @@ import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../Constants/Colors";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import Button from "../components/Button";
 
 const Welcome = ({ navigation }) => {
   return (
     <LinearGradient style={{ flex: 1 }} colors={[COLORS.gray, COLORS.black]}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, height: hp("50%"), width: wp("100%") }}>
         <View>
           <Image
             source={require("../assets/icons1.png")}
