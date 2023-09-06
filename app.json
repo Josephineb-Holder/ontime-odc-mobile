@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "ontime-odc-mobile",
+    "slug": "ontime-odc-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/rsz_ontimelogo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000",
+      "width": "200"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/70164736-8e51-4dc9-8f32-3e00fcf33fb9"
+    }
+  }
+}
