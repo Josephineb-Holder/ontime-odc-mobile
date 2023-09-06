@@ -19,30 +19,33 @@ const Login = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
-        <View style={{ marginVertical: 40 }}>
+        <Image
+          source={require("../assets/ontimelogo.png")}
+          style={{
+            height: 40,
+            width: 200,
+            position: "absolute",
+            top: 100,
+            left: 75,
+          }}
+        />
+
+        <View style={{ marginVertical: 110 }}>
           <Text
             style={{
               fontSize: 22,
               fontWeight: "bold",
               marginVertical: 12,
               color: COLORS.black,
-              top: 15,
+              top: 70,
             }}
           >
             Hey, Welcome back!
           </Text>
+          <Text style={{ fontSize: 18, top: 60 }}>
+            Seems like you've missed alot
+          </Text>
         </View>
-
-        <Image
-          source={require("../assets/ontimelogo.png")}
-          style={{
-            height: 60,
-            width: 250,
-            position: "absolute",
-            top: 50,
-            left: 90,
-          }}
-        />
 
         <View style={{ marginBottom: 12 }}>
           <Text style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}>
@@ -118,6 +121,20 @@ const Login = ({ navigation }) => {
           />
           <Text>Remember Me.</Text>
 
+          <Pressable onPress={() => navigation.navigate("ForgotPassword")}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: COLORS.primary,
+                fontWeight: "bold",
+                marginLeft: 95,
+                bottom: 1,
+              }}
+            >
+              Forgot Password?
+            </Text>
+          </Pressable>
+
           <Button
             title="Login"
             filled
@@ -125,7 +142,7 @@ const Login = ({ navigation }) => {
               marginTop: 18,
               marginBottom: 4,
               width: "100%",
-              right: 123,
+              right: 338,
               top: 50,
             }}
           />
@@ -137,7 +154,7 @@ const Login = ({ navigation }) => {
             marginVertical: 22,
           }}
         >
-          <Text style={{ fontSize: 16, color: COLORS.black, top: 20 }}>
+          <Text style={{ fontSize: 16, color: COLORS.black, top: 30 }}>
             Don't have an account?
           </Text>
           <Pressable onPress={() => navigation.navigate("Signup")}>
@@ -146,8 +163,8 @@ const Login = ({ navigation }) => {
                 fontSize: 16,
                 color: COLORS.primary,
                 fontWeight: "bold",
-                marginLeft: 6,
-                top: 20,
+                marginLeft: 9,
+                top: 30,
               }}
             >
               Sign Up

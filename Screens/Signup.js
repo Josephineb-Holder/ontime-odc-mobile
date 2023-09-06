@@ -18,7 +18,7 @@ const Signup = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
-        <View style={{ marginVertical: 40 }}>
+        <View style={{ marginVertical: 20 }}>
           <Text
             style={{
               fontSize: 22,
@@ -29,10 +29,6 @@ const Signup = ({ navigation }) => {
             }}
           >
             Create Account
-          </Text>
-
-          <Text style={{ fontSize: 16, color: COLORS.black, top: 10 }}>
-            Want to know what's happening? Just Join!
           </Text>
         </View>
 
@@ -107,22 +103,36 @@ const Signup = ({ navigation }) => {
               }}
             >
               <TextInput
-                placeholder="+231"
-                placeholderTextColor={COLORS.black}
-                keyboardType="numeric"
-                style={{
-                  width: "12%",
-                  borderWidth: 1,
-                  borderColor: COLORS.gray,
-                  height: "100%",
-                  right: 20,
-                }}
-              />
-
-              <TextInput
-                placeholder="Enter your phone number"
+                placeholder="Ex:  (077) or (088)"
                 placeholderTextColor={COLORS.gray}
                 keyboardType="numeric"
+                style={{ width: "80%" }}
+              />
+            </View>
+          </View>
+
+          <View style={{ marginBottom: 12 }}>
+            <Text style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}>
+              Address
+            </Text>
+
+            <View
+              style={{
+                width: "100%",
+                height: 48,
+                borderColor: COLORS.black,
+                borderWidth: 1,
+                borderRadius: 8,
+                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                paddingLeft: 22,
+              }}
+            >
+              <TextInput
+                placeholder="Your Address"
+                placeholderTextColor={COLORS.gray}
+                keyboardType="ascii-capable"
                 style={{ width: "80%" }}
               />
             </View>
@@ -183,7 +193,7 @@ const Signup = ({ navigation }) => {
               marginBottom: 4,
               width: "100%",
               right: 245,
-              top: 50,
+              top: 30,
             }}
           />
         </View>
@@ -194,7 +204,7 @@ const Signup = ({ navigation }) => {
             marginVertical: 22,
           }}
         >
-          <Text style={{ fontSize: 16, color: COLORS.black, top: 20 }}>
+          <Text style={{ fontSize: 16, color: COLORS.black, top: 15 }}>
             Already have an account?
           </Text>
           <Pressable onPress={() => navigation.navigate("Login")}>
@@ -204,7 +214,7 @@ const Signup = ({ navigation }) => {
                 color: COLORS.primary,
                 fontWeight: "bold",
                 marginLeft: 6,
-                top: 20,
+                top: 15,
               }}
             >
               Login
