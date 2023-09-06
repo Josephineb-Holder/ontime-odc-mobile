@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  Login,
-  Signup,
-  Welcome,
-  ForgotPassword,
-  Events,
-  HomeScreen,
-  Activities,
-} from "./Screens/index";
+import { Login, Signup, Welcome, ForgotPassword } from "./Screens/index";
+import HomeScreen from "./Screens/HomeScreen";
+import Events from "./Screens/Events/Events";
+import Activities from "./Screens/Activities";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
