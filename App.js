@@ -15,6 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { Text } from "react-native";
 import COLORS from "./Constants/Colors";
+import EventsDetails from "./Screens/Events/EventsDetails";
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
@@ -129,7 +130,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Home"
+          name="DefaultHome"
           component={Tabs}
           options={{ headerShown: false }}
         />
@@ -137,6 +138,11 @@ export default function App() {
           name="Splash"
           component={Welcome}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+        name="EventsDetails"
+        component={EventsDetails}
+        options={{title: "Events Details"}}
         />
       </Stack.Navigator>
     </NavigationContainer>
