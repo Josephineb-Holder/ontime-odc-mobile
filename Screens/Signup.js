@@ -213,13 +213,14 @@ const Signup = ({ navigation }) => {
             <Text>I agreed to the terms and conditions.</Text>
 
             <Button
+              onPress={() => navigation.navigate("Home")}
               title="Sign Up"
               filled
               style={{
                 marginTop: 18,
                 marginBottom: wp("2%"),
                 width: "100%",
-                right: 245,
+                right: wp("66.7%"),
                 top: 30,
               }}
             />
