@@ -213,7 +213,7 @@ const Signup = ({ navigation }) => {
             <Text>I agreed to the terms and conditions.</Text>
 
             <Button
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("DefaultHome")}
               title="Sign Up"
               filled
               style={{
