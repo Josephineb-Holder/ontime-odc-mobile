@@ -120,7 +120,7 @@ const Login = ({ navigation }) => {
             </View>
           </View>
 
-          <View style={{ flexDirection: "row", marginVertical: 6 }}>
+          <View style={{ flexDirection: "row", marginVertical: hp("1%") }}>
             <Checkbox
               style={{ marginRight: 8 }}
               value={isChecked}
@@ -135,7 +135,7 @@ const Login = ({ navigation }) => {
                   fontSize: 16,
                   color: COLORS.primary,
                   fontWeight: "bold",
-                  marginLeft: wp("27.4%"),
+                  marginLeft: wp("24.5%"),
                   bottom: 1,
                 }}
               >
@@ -144,13 +144,13 @@ const Login = ({ navigation }) => {
             </Pressable>
 
             <Button
+              onPress={() => navigation.navigate("Home")}
               title="Login"
               filled
               style={{
-                marginTop: 18,
-                marginBottom: 4,
+                marginTop: hp("4%"),
                 width: "100%",
-                right: 353,
+                right: wp("89%"),
                 top: 50,
               }}
             />
@@ -162,7 +162,9 @@ const Login = ({ navigation }) => {
               marginVertical: 30,
             }}
           >
-            <Text style={{ fontSize: 16, color: COLORS.black, top: 30 }}>
+            <Text
+              style={{ fontSize: 16, color: COLORS.black, top: hp("3.7%") }}
+            >
               Don't have an account?
             </Text>
             <Pressable onPress={() => navigation.navigate("Signup")}>
@@ -171,7 +173,7 @@ const Login = ({ navigation }) => {
                   fontSize: 16,
                   color: COLORS.primary,
                   fontWeight: "bold",
-                  marginLeft: 9,
+                  marginLeft: wp("2%"),
                   top: 30,
                 }}
               >

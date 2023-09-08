@@ -11,8 +11,8 @@ import Button from "../components/Button";
 const Welcome = ({ navigation }) => {
   return (
     <LinearGradient style={{ flex: 1 }} colors={[COLORS.gray, COLORS.black]}>
-      <View style={{ flex: 1, height: hp("50%"), width: wp("100%") }}>
-        <View>
+      <View style={{ flex: 1, height: hp("90%"), width: wp("100%") }}>
+        <View style={{ height: hp("40%") }}>
           <Image
             source={require("../assets/icons1.png")}
             style={{
@@ -100,9 +100,12 @@ const Welcome = ({ navigation }) => {
               </Text>
             </Text>
 
-            <View style={{ marginVertical: 22 }}>
+            <View style={{ marginVertical: hp("3%") }}>
               <Text
-                style={{ fontSize: 20, color: COLORS.white, marginVertical: 4 }}
+                style={{
+                  fontSize: 20,
+                  color: COLORS.white,
+                }}
               >
                 Explore more by joining us.
               </Text>
@@ -111,13 +114,13 @@ const Welcome = ({ navigation }) => {
               title="Join Now"
               onPress={() => navigation.navigate("Signup")}
               filled
-              style={{ marginTop: 22, width: "100%" }}
+              style={{ top: wp("5%"), width: "100%" }}
             />
 
             <View
               style={{
                 flexDirection: "row",
-                marginTop: 50,
+                marginTop: hp("4.5%"),
                 justifyContent: "center",
               }}
             >

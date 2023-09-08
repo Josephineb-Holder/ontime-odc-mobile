@@ -43,7 +43,7 @@ const ForgotPassword = ({ navigation }) => {
               width: 230,
               position: "absolute",
               top: hp("12%"),
-              left: wp("22.2%"),
+              left: wp("22.5%"),
             }}
           />
           <Text
