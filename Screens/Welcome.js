@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, SafeAreaView, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../Constants/Colors";
 import {
@@ -11,77 +11,102 @@ import Button from "../components/Button";
 const Welcome = ({ navigation }) => {
   return (
     <LinearGradient style={{ flex: 1 }} colors={[COLORS.gray, COLORS.black]}>
-      <View style={{ flex: 1, height: hp("90%"), width: wp("100%") }}>
-        <View style={{ height: hp("40%") }}>
-          <Image
-            source={require("../assets/icons1.png")}
+      <SafeAreaView>
+        {/* <View
+          style={{
+            flex: 1,
+            height: hp("80%"),
+            width: wp("100%"),
+            paddingBottom: hp("10%"),
+          }}
+        > */}
+        <View
+          style={{
+            height: hp("100%"),
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <View
             style={{
-              height: 100,
-              width: 200,
-              position: "absolute",
-              top: 50,
-              left: 70,
-              transform: [
-                { translateX: 20 },
-                { translateY: 50 },
-                { rotate: "-10deg" },
-              ],
+              position: "relative",
+              marginBottom: hp("60%"),
+              marginTop: hp("5%"),
             }}
-          />
+          >
+            <Image
+              source={require("../assets/icons1.png")}
+              style={{
+                height: 100,
+                width: 200,
+                position: "absolute",
+                top: 50,
+                left: 70,
+                transform: [
+                  { translateX: 20 },
+                  { translateY: 50 },
+                  { rotate: "-10deg" },
+                ],
+              }}
+            />
 
-          <Image
-            source={require("../assets/icons4.png")}
-            style={{
-              height: 100,
-              width: 100,
-              position: "absolute",
-              top: -20,
-              left: 230,
-              transform: [
-                { translateX: 50 },
-                { translateY: 50 },
-                { rotate: "20deg" },
-              ],
-            }}
-          />
-          <Image
-            source={require("../assets/icons3.png")}
-            style={{
-              height: 100,
-              width: 100,
-              position: "absolute",
-              top: 150,
-              left: -20,
-              transform: [
-                { translateX: 30 },
-                { translateY: 60 },
-                { rotate: "15deg" },
-              ],
-            }}
-          />
+            <Image
+              source={require("../assets/icons4.png")}
+              style={{
+                height: 100,
+                width: 100,
+                position: "absolute",
+                top: -20,
+                left: 230,
+                transform: [
+                  { translateX: 50 },
+                  { translateY: 50 },
+                  { rotate: "20deg" },
+                ],
+              }}
+            />
+            <Image
+              source={require("../assets/icons3.png")}
+              style={{
+                height: 100,
+                width: 100,
+                position: "absolute",
+                top: 150,
+                left: -20,
+                transform: [
+                  { translateX: 30 },
+                  { translateY: 60 },
+                  { rotate: "15deg" },
+                ],
+              }}
+            />
 
-          <Image
-            source={require("../assets/icons2.png")}
-            style={{
-              height: 210,
-              width: 200,
-              position: "absolute",
-              top: 150,
-              left: 120,
-              transform: [
-                { translateX: 30 },
-                { translateY: 60 },
-                { rotate: "2deg" },
-              ],
-            }}
-          />
+            <Image
+              source={require("../assets/icons2.png")}
+              style={{
+                height: 210,
+                width: 200,
+                position: "absolute",
+                top: 150,
+                left: 120,
+                transform: [
+                  { translateX: 30 },
+                  { translateY: 60 },
+                  { rotate: "2deg" },
+                ],
+              }}
+            />
+          </View>
 
           <View
             style={{
-              paddingHorizontal: 22,
-              position: "absolute",
-              top: 400,
+              // paddingHorizontal: wp("5.5%"),
+              // position: "absolute",
+              // top: hp("10%"),
               width: "100%",
+              height: hp("58%"),
+              padding: "6%",
+              marginTop: hp("8%"),
             }}
           >
             <Text
@@ -142,7 +167,8 @@ const Welcome = ({ navigation }) => {
             </View>
           </View>
         </View>
-      </View>
+        {/* </View> */}
+      </SafeAreaView>
     </LinearGradient>
   );
 };

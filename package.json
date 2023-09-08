@@ -17,7 +17,7 @@
     "expo-linear-gradient": "^12.3.0",
     "expo-status-bar": "~1.6.0",
     "expo-updates": "~0.18.12",
-    "lottie-react-native": "^6.2.0",
+    "lottie-react-native": "5.1.6",
     "react": "18.2.0",
     "react-native": "0.72.4",
     "react-native-navigation-container": "^1.0.6",
@@ -30,5 +30,16 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deviskalo/ontime-odc-mobile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Deviskalo/ontime-odc-mobile/issues"
+  },
+  "homepage": "https://github.com/Deviskalo/ontime-odc-mobile#readme",
+  "description": ""
 }
