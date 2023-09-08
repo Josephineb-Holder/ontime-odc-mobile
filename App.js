@@ -1,63 +1,108 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login, Signup, Welcome, ForgotPassword } from "./Screens/index";
-import HomeScreen from "./Screens/HomeScreen";
-import Events from "./Screens/Events/Events";
-import Activities from "./Screens/Activities";
+import {
+  Login,
+  Signup,
+  Welcome,
+  ForgotPassword,
+  Events,
+  HomeScreen,
+  Activities,
+} from "./Screens/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Text } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
+import { Text } from "react-native";
+import COLORS from "./Constants/Colors";
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
-    <Tab.Navigator screenOptions={{
-      tabBarIconStyle: { display: "none", },
-      tabBarLabelPosition: "beside-icon",
-      tabBarLabelStyle: {
-        fontWeight: "700",
-        fontSize: 15,
-      },
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
 
+          if (route.name === "Home") {
+            iconName = focused ? "home" : "home-outline";
+            iconColor = focused ? COLORS.primary : color;
+          } else if (route.name === "Events") {
+            iconName = focused ? "calendar" : "calendar-outline";
+            iconColor = focused ? COLORS.primary : color;
+          } else if (route.name === "Activities") {
+            iconName = focused ? "list" : "list-outline";
+            iconColor = focused ? "#dc4d01" : color;
+          }
 
-    }}>
-      <Tab.Screen name='Home' options={
-        {
-          tabBarLabel: ({ focused, color }) => (<Text style={{
-            color: focused ? "orange" : "gray", fontWeight: "700",
-            fontSize: 15,
-          }}>Home</Text>),
-        }
-      } component={HomeScreen} />
-      <Tab.Screen name='Events' options={
-        {
-          tabBarLabel: ({ focused, color }) => (<Text style={{
-            color: focused ? "orange" : "gray", fontWeight: "700",
-            fontSize: 15,
-          }}>Events</Text>),
-        }
-      }  component={Events} />
-      <Tab.Screen name='Activities' options={
-        {
-          tabBarLabel: ({ focused, color }) => (<Text style={{
-            color: focused ? "orange" : "gray", fontWeight: "700",
-            fontSize: 15,
-          }}>Activities</Text>),
-        }
-      }  component={Activities} />
+          return <Ionicons name={iconName} size={size} color={iconColor} />;
+        },
+        tabBarLabelStyle: {
+          fontWeight: "700",
+          fontSize: 15,
+        },
+      })}
+    >
+      <Tab.Screen
+        name="Home"
+        options={{
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                color: focused ? COLORS.primary : COLORS.black,
+                fontWeight: "700",
+                fontSize: 15,
+              }}
+            >
+              Home
+            </Text>
+          ),
+        }}
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        name="Events"
+        options={{
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                color: focused ? COLORS.primary : COLORS.black,
+                fontWeight: "700",
+                fontSize: 15,
+              }}
+            >
+              Events
+            </Text>
+          ),
+        }}
+        component={Events}
+      />
+      <Tab.Screen
+        name="Activities"
+        options={{
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                color: focused ? COLORS.primary : COLORS.black,
+                fontWeight: "700",
+                fontSize: 15,
+              }}
+            >
+              Activities
+            </Text>
+          ),
+        }}
+        component={Activities}
+      />
     </Tab.Navigator>
   );
 };
-
-
-
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Default">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           name="Welcome"
           component={Welcome}
@@ -74,13 +119,23 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="ForgotPassword"
+          name="Forgot Password"
           component={ForgotPassword}
           options={{ headerShown: true }}
         />
         <Stack.Screen
-          name='Default'
+          name="Default"
           component={Tabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Tabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Splash"
+          component={Welcome}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
