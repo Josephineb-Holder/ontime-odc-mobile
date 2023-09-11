@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -12,25 +12,24 @@ import {
 } from "./Screens/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-
 import { Text } from "react-native";
 import COLORS from "./Constants/Colors";
 import EventsDetails from "./Screens/Events/EventsDetails";
 
 const Tab = createBottomTabNavigator();
+
 const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
+          let iconColor = focused ? COLORS.primary : color;
 
-          if (route.name === "Home") {
+          if (route.name === "TabHome") {
             iconName = focused ? "home" : "home-outline";
-            iconColor = focused ? COLORS.primary : color;
           } else if (route.name === "Events") {
             iconName = focused ? "calendar" : "calendar-outline";
-            iconColor = focused ? COLORS.primary : color;
           } else if (route.name === "Activities") {
             iconName = focused ? "list" : "list-outline";
             iconColor = focused ? "#dc4d01" : color;
@@ -45,7 +44,7 @@ const Tabs = () => {
       })}
     >
       <Tab.Screen
-        name="Home"
+        name="TabHome"
         options={{
           tabBarLabel: ({ focused, color }) => (
             <Text
@@ -100,6 +99,7 @@ const Tabs = () => {
 };
 
 const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>

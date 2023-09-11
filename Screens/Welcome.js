@@ -10,7 +10,7 @@ import Button from "../components/Button";
 
 const Welcome = ({ navigation }) => {
   return (
-    <LinearGradient style={{ flex: 1 }} colors={[COLORS.gray, COLORS.black]}>
+    <LinearGradient style={{ flex: 1 }} colors={[COLORS.black, COLORS.white]}>
       <SafeAreaView>
         {/* <View
           style={{
@@ -119,7 +119,7 @@ const Welcome = ({ navigation }) => {
             >
               Let's Get{" "}
               <Text
-                style={{ fontSize: 46, fontWeight: 800, color: COLORS.white }}
+                style={{ fontSize: 46, fontWeight: "800", color: COLORS.white }}
               >
                 Started
               </Text>

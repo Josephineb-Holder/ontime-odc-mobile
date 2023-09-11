@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ScrollView,
   TouchableHighlight,
@@ -6,14 +6,14 @@ import {
   Text,
   StyleSheet,
   FlatList,
-} from 'react-native';
+} from "react-native";
 
 checkInObj = {
-  date: 'Mon. September 5, 2023',
+  date: "Mon. September 5, 2023",
   // dateString: this.date.toDateString(),
-  hour: '10',
-  min: '20',
-  mn: 'AM',
+  hour: "10",
+  min: "20",
+  mn: "AM",
 };
 
 function Home() {
@@ -84,11 +84,11 @@ function Home() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    position: 'relative',
+    backgroundColor: "#fff",
+    position: "relative",
   },
   appMain: {
-    padding: '4%',
+    padding: "4%",
   },
 
   contentMain: {
@@ -97,10 +97,10 @@ const styles = StyleSheet.create({
 
   contentContainer: {
     borderWidth: 1,
-    borderColor: '#FF7900',
+    borderColor: "#FF7900",
     padding: 10,
     borderRadius: 10,
-    overflow: 'scroll',
+    overflow: "scroll",
   },
 
   contentHeader: {
@@ -109,42 +109,42 @@ const styles = StyleSheet.create({
   },
 
   checkInContentCont: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     marginBottom: 30,
   },
   activitiesContentCont: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     marginBottom: 30,
   },
 
   checkInBtn: {
     borderWidth: 1,
-    backgroundColor: '#FF7900',
+    backgroundColor: "#FF7900",
     padding: 10,
     borderRadius: 10,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   checkInBtnText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: 600,
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "600",
   },
 
   subHeader: {
-    textAlign: 'center',
-    fontWeight: 600,
+    textAlign: "center",
+    fontWeight: "600",
     fontSize: 18,
     marginBottom: 20,
   },
 
   checkInContentHeader: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 14,
-    color: '#666666',
+    color: "#666666",
     marginBottom: 6,
   },
 
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   },
 
   btnText: {
-    color: '#FF7900',
+    color: "#FF7900",
   },
 });
 
