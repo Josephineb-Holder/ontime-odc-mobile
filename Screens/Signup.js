@@ -46,7 +46,9 @@ const Signup = ({ navigation }) => {
           </View>
 
           <View style={{ marginBottom: 12 }}>
-            <Text style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}>
+            <Text
+              style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
+            >
               Email address
             </Text>
 
@@ -74,7 +76,7 @@ const Signup = ({ navigation }) => {
           <View>
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Full Name
               </Text>
@@ -101,7 +103,7 @@ const Signup = ({ navigation }) => {
             </View>
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Phone Number
               </Text>
@@ -130,7 +132,7 @@ const Signup = ({ navigation }) => {
 
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Address
               </Text>
@@ -159,7 +161,7 @@ const Signup = ({ navigation }) => {
 
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Password
               </Text>
