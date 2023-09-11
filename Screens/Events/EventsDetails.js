@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     borderWidth: 3, 
-    borderColor: "orange",
+    borderColor: "#FF7900",
     marginBottom: 30,
     marginTop: 50
     
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "orange",
+    backgroundColor: "#FF7900",
     marginHorizontal: 50,
     justifyContent: "center",
     textAlign: "center",
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: 10,
     borderWidth: 3,
-    borderColor: 'orange'
+    borderColor: '#FF7900'
     
 
   }
