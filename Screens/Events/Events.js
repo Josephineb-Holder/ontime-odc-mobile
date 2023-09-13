@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, SafeAreaView, FlatList, ScrollView, StyleSheet, StatusBar, Touchable, TouchableOpacity, SearchBar } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, TextInput } from 'react-native-paper';
 import { eventsData } from './EventsData';
 import { useNavigation } from '@react-navigation/native';
-
+import SearchFilter from './SearchFilter';
 
 
 
 const SelectMonths = () => {
-  const [search, setSearch] = React.useState('');
+  const [search, setSearch] = useState('');
   const [selectedMonths, setSelectedMonths] = useState("September");
   const [showArrow, setShowArrow] = useState(false);
-  const [value, setValue] = useState(null);
-  
-
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   const eventmonths = eventsData;
   // console.log(eventmonths.September)
@@ -23,16 +21,18 @@ const SelectMonths = () => {
   // console.log(eventmonths.November);
 
   const SearchBar = () => {
-    const onChangeSearch = query => setSearch(selectMonths);
+    const onChangeSearch = eventmonths => setSearchQuery(eventmonths);
 
     return (
-      <Searchbar
-        placeholder="Search by Months"
+      <SearchBar
+        placeholder="Search by Courses"
         onChangeText={onChangeSearch}
         value={search}
         style={{ borderColor: '#FF7900', backgroundColor: 'white', borderWidth: 2, width: "120%"}}
         /> 
+              
     )
+    
   };
 
   
@@ -66,6 +66,8 @@ const SelectMonths = () => {
               placeholder="Search"
               value={search}
             />
+           {/* <TextInput style={{fontSize: 15 }} placeholder='search'/> */}
+       <SearchFilter/>
            
           </View>
 
@@ -103,7 +105,7 @@ const SelectMonths = () => {
 
             )
           }}
-          keyExtractor={item => item.time}
+          keyExtractor={item => item.eventName}
         />
       </ScrollView>
 
