@@ -39,7 +39,7 @@ const Tabs = () => {
           return <Ionicons name={iconName} size={size} color={iconColor} />;
         },
         tabBarLabelStyle: {
-          fontWeight: "700",
+          fontWeight: 700,
           fontSize: 15,
         },
       })}
@@ -51,7 +51,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                fontWeight: 700,
                 fontSize: 15,
               }}
             >
@@ -85,7 +85,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                fontWeight: 700,
                 fontSize: 15,
               }}
             >

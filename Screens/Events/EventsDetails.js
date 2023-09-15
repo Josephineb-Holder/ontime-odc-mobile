@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   eventName: {
     fontSize: 25,
-    fontWeight: "bold",
+    fontWeight: 700,
     textAlign: "center",
     marginTop: 20,
     color: "black",
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   time: {
     color: "#c0032c",
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 700,
     textAlign: "center",
     marginBottom: 20,
   },
@@ -73,25 +73,25 @@ const styles = StyleSheet.create({
   },
   duration: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 700,
     textAlign: "center",
     marginBottom: 20,
   },
   days: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 700,
     textAlign: "center",
     marginBottom: 20,
   },
   time: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 700,
     textAlign: "center",
     marginBottom: 20,
   },
   area: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 700,
     textAlign: "center",
     marginBottom: 20,
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     margin: 20,
     color: "white",
-    fontWeight: "bold",
+    fontWeight: 700,
     padding: 10,
     borderWidth: 3,
     borderColor: '#FF7900'

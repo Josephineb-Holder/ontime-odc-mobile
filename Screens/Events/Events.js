@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, SafeAreaView, FlatList, ScrollView, StyleSheet, StatusBar, Touchable, TouchableOpacity, SearchBar } from 'react-native';
+import { View, Text, SafeAreaView, FlatList, ScrollView, StyleSheet, StatusBar, Touchable, TouchableOpacity} from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import { Searchbar, TextInput } from 'react-native-paper';
 import { eventsData } from './EventsData';
 import { useNavigation } from '@react-navigation/native';
+import { Searchbar } from 'react-native-paper';
 // import SearchFilter from './SearchFilter';
 
 
 
 const SelectMonths = () => {
-  const [search, setSearch] = useState('');
+  //const [search, setSearch] = useState('');
   const [selectedMonths, setSelectedMonths] = useState("September");
   const [showArrow, setShowArrow] = useState(false);
-  const [searchQuery, setSearchQuery] = React.useState('');
+ 
 
   const eventmonths = eventsData;
   // console.log(eventmonths.September)
@@ -21,17 +21,16 @@ const SelectMonths = () => {
   // console.log(eventmonths.November);
 
   const SearchBar = () => {
+    const [searchQuery, setSearchQuery] = React.useState('');
     const onChangeSearch = eventmonths => setSearchQuery(eventmonths);
 
-    return (
-      <SearchBar
+      <Searchbar
         placeholder="Search by Courses"
         onChangeText={onChangeSearch}
-        value={search}
-        style={{ borderColor: '#FF7900', backgroundColor: 'white', borderWidth: 2, width: "120%"}}
+        value={searchQuery}
+        style={{ borderColor: '#FF7900', backgroundColor: 'white', borderWidth: 2, width: "1%"}}
         /> 
-              
-    )
+     
   };
 
   
@@ -55,21 +54,17 @@ const SelectMonths = () => {
   // console.log({month: eventmonths[selectedMonths]})
 
 
-  return (
-
+  return ( 
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      {/* <ScrollView> */}
         <View style={styles.topBar}>
           <View style={styles.barItem}>
-            <SearchBar
+            <Searchbar
               placeholder="Search"
               value={search}
             />
-           {/* <TextInput style={{fontSize: 15 }} placeholder='search'/> */}
-       {/* <SearchFilter/> */}
            
           </View>
-
 
           <View style={styles.barItem}>
             <TouchableOpacity onPress={toggleDropdown} style={styles.dropDownItems}>
@@ -90,6 +85,7 @@ const SelectMonths = () => {
           </View>
 
         )}
+        <View>
         <FlatList data={eventmonths[selectedMonths]}
           renderItem={({ item }) => {
             return (
@@ -106,7 +102,9 @@ const SelectMonths = () => {
           }}
           keyExtractor={item => item.eventName}
         />
-      </ScrollView>
+        </View>
+      {/* </ScrollView> */}
+      
 
     </SafeAreaView>
 
@@ -178,8 +176,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     marginVertical: 5,
     marginHorizontal: 86,
-
-  },
+},
   monthsCard: {
     // shadowColor: 'white',
     elevation: 4,
@@ -192,35 +189,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     fontSize: 20
   },
-
-  // dropdowncopy: {
-  //   margin: 16,
-  //   height: 50,
-  //   borderBottomColor: 'gray',
-  //   borderBottomWidth: 0.5,
-  // },
-  // icon: {
-  //   marginRight: 5,
-  // },
-  // placeholderStyle: {
-  //   fontSize: 16,
-  // },
-  // selectedTextStyle: {
-  //   fontSize: 16,
-  // },
-  // iconStyle: {
-  //   width: 20,
-  //   height: 20,
-  // },
-  // inputSearchStyle: {
-  //   height: 40,
-  //   fontSize: 16,
-  // },
-
 });
-
-
-
-
 
 export default SelectMonths;
