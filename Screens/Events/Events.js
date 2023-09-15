@@ -4,7 +4,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 import { Searchbar, TextInput } from 'react-native-paper';
 import { eventsData } from './EventsData';
 import { useNavigation } from '@react-navigation/native';
-import SearchFilter from './SearchFilter';
+// import SearchFilter from './SearchFilter';
 
 
 
@@ -32,7 +32,6 @@ const SelectMonths = () => {
         /> 
               
     )
-    
   };
 
   
@@ -67,7 +66,7 @@ const SelectMonths = () => {
               value={search}
             />
            {/* <TextInput style={{fontSize: 15 }} placeholder='search'/> */}
-       <SearchFilter/>
+       {/* <SearchFilter/> */}
            
           </View>
 

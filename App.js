@@ -6,9 +6,9 @@ import {
   Signup,
   Welcome,
   ForgotPassword,
-  Events,
   HomeScreen,
   Activities,
+  Events
 } from "./Screens/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -68,7 +68,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                //fontWeight: "700",
                 fontSize: 15,
               }}
             >
