@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login, Signup, Welcome, ForgotPassword } from "./Screens/index";
-import HomeScreen from "./Screens/HomeScreen";
-import Events from "./Screens/Events/Events";
-import Activities from "./Screens/Activities";
+import {
+  Login,
+  Signup,
+  Welcome,
+  ForgotPassword,
+  HomeScreen,
+  Activities,
+  Events,
+} from "./Screens/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -63,7 +68,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                //fontWeight: "700",
                 fontSize: 15,
               }}
             >
@@ -135,9 +140,9 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-        name="EventsDetails"
-        component={EventsDetails}
-        options={{title: "Events Details"}}
+          name="EventsDetails"
+          component={EventsDetails}
+          options={{ title: "Events Details" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
