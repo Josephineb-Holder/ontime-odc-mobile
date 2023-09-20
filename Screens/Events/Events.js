@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, SafeAreaView, FlatList, ScrollView, StyleSheet, StatusBar, Touchable, TouchableOpacity} from 'react-native';
+import { View, Text, Image, SafeAreaView, FlatList, ScrollView, StyleSheet, StatusBar, Touchable, TouchableOpacity } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { eventsData } from './EventsData';
 import { useNavigation } from '@react-navigation/native';
 import { Searchbar } from 'react-native-paper';
+import { ImageBackground } from 'react-native';
+import SearchFilter from './SearchFilter';
 // import SearchFilter from './SearchFilter';
 
 
@@ -12,7 +14,8 @@ const SelectMonths = () => {
   //const [search, setSearch] = useState('');
   const [selectedMonths, setSelectedMonths] = useState("September");
   const [showArrow, setShowArrow] = useState(false);
- 
+  const [filteredArr, setFilteredArr] = useState(eventsData[selectedMonths] || []);
+
 
   const eventmonths = eventsData;
   // console.log(eventmonths.September)
@@ -20,20 +23,34 @@ const SelectMonths = () => {
   const months = Object.keys(eventmonths)
   // console.log(eventmonths.November);
 
-  const SearchBar = () => {
+  const SearchBar = ({setFilteredArr, filteredArr}) => {
     const [searchQuery, setSearchQuery] = React.useState('');
-    const onChangeSearch = eventmonths => setSearchQuery(eventmonths);
+    const [searchItems, setSearchItems] = React.useState('');
+    // const text = query => setSearchQuery(query);
 
+    const onChangeSearch = query => {
+      try {
+        setFilteredArr(filteredArr.filter(item => item.eventName.includes(query)))
+        return setSearchQuery(query);
+      } catch (error) {
+        console.log({ error })
+      }
+    }
+
+
+    return (
       <Searchbar
         placeholder="Search by Courses"
         onChangeText={onChangeSearch}
         value={searchQuery}
-        style={{ borderColor: '#FF7900', backgroundColor: 'white', borderWidth: 2, width: "1%"}}
-        /> 
-     
+        style={{ borderColor: '#FF7900', backgroundColor: 'white', borderWidth: 2, width: "100%" }}
+      />
+    )
+
+
   };
 
-  
+
   const toggleDropdown = () => {
     setShowArrow(!showArrow);
   };
@@ -54,57 +71,76 @@ const SelectMonths = () => {
   // console.log({month: eventmonths[selectedMonths]})
 
 
-  return ( 
+  return (
     <SafeAreaView style={styles.container}>
-      {/* <ScrollView> */}
-        <View style={styles.topBar}>
-          <View style={styles.barItem}>
-            <Searchbar
-              placeholder="Search"
-              value={search}
-            />
-           
-          </View>
+      <View style={styles.topBar}>
+        <View style={styles.barItem}>
+          <SearchBar setFilteredArr={setFilteredArr} filteredArr={filteredArr} />
 
-          <View style={styles.barItem}>
-            <TouchableOpacity onPress={toggleDropdown} style={styles.dropDownItems}>
-              <Text style={styles.headerText}>{selectedMonths || 'Select months'}</Text>
-              <Text style={styles.hamburgerIcon}>{showArrow ? "▲" : "▼"}</Text>
-            </TouchableOpacity>
-          </View>
         </View>
 
-        {showArrow && (
-          <View style={styles}>
+        <View style={styles.barItem}>
+          <TouchableOpacity onPress={toggleDropdown} style={styles.dropDownItems}>
+            <Text style={styles.headerText}>{selectedMonths || 'Select months'}</Text>
+            <Text style={styles.hamburgerIcon}>{showArrow ? "▲" : "▼"}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
-            {months.map((ele) => (
-              <TouchableOpacity key={ele} onPress={() => selectMonths(ele)}>
-                <Text style={styles.dropdownmonths}>{ele}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+      {showArrow && (
+        <View style={styles}>
 
-        )}
-        <View>
+          {months.map((ele) => (
+            <TouchableOpacity key={ele} onPress={() => selectMonths(ele)}>
+              <Text style={styles.dropdownmonths}>{ele}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+      )}
+      <View>
         <FlatList data={eventmonths[selectedMonths]}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity onPress={() => monthsPress(item)}>
-                <View style={styles.monthsCard}>
-                  <View>
-                    <Text style={styles.eventName}>{item.eventName}</Text>
-                    <Text style={styles.title}>{item.time}{'\n'}{item.area}</Text>
-                  </View>
-                </View>
+              <TouchableOpacity style={{ flex: 1, padding: 10, width: '100%', marginBottom: 10 }} onPress={() => monthsPress(item)}>
+
+                <ImageBackground blurRadius={4} style={{
+                  borderColor: "orange",
+                  marginBottom: 8,
+                  padding: 30,
+                  borderWidth: 2,
+                  borderRadius: 6,
+                  flex: 1,
+                  resizeMode: 'cover',
+                  marginHorizontal: 10,
+
+
+                }}
+                  source={{ uri: item.photo }}
+                >
+                  <Text style={{
+                    color: 'white',
+                    fontSize: 20,
+                    lineHeight: 30,
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    // backgroundColor: '#000000c0',
+                  }}>{item.eventName}{'\n'}
+                    {item.time}{'\n'}{item.area}
+                  </Text>
+                </ImageBackground>
+
               </TouchableOpacity>
 
             )
           }}
           keyExtractor={item => item.eventName}
         />
-        </View>
-      {/* </ScrollView> */}
-      
+
+      </View>
+
+      <View />
+
 
     </SafeAreaView>
 
@@ -123,7 +159,7 @@ const styles = StyleSheet.create({
   topBar: {
     display: 'flex',
     flexDirection: 'row',
-    gap: 40  ,
+    gap: 40,
     justifyContent: 'space-between',
     alignItems: "center",
     flexWrap: 'nowrap',
@@ -134,6 +170,7 @@ const styles = StyleSheet.create({
   barItem: {
     flex: 2
   },
+
 
   hamburgerIcon: {
     marginHorizontal: 0,
@@ -176,19 +213,8 @@ const styles = StyleSheet.create({
     elevation: 2,
     marginVertical: 5,
     marginHorizontal: 86,
-},
-  monthsCard: {
-    // shadowColor: 'white',
-    elevation: 4,
-    padding: 20,
-    marginVertical: 10,
-    marginHorizontal: 16,
-    borderRadius: 8,
-    flexDirection: 'row',
-    borderColor: '#FF7900',
-    borderWidth: 2,
-    fontSize: 20
   },
+
 });
 
 export default SelectMonths;
