@@ -27,7 +27,7 @@ const Activities = () => {
         <Calendar style={styles.calendar} />
         <ScrollView>
         
-        <View style={styles.viewStyle}>
+        <View>
         <List.Section >
       <List.Accordion style={styles.accordionStyle}
         title="Select Month"
