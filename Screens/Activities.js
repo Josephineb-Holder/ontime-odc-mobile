@@ -8,13 +8,38 @@ import { List } from "react-native-paper";
 import COLORS from "../Constants/Colors";
 
 const Activities = () => {
-  const [expanded, setExpanded] = React.useState(true);
-  const [monthSelected, setMonthselected] = useState(true);
+  const [expanded, setExpanded] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState(null);
 
-  const handlePress = () => {
-    setExpanded(!expanded);
+  const toggleAccordion = (month) => {
+    if (expanded === month) {
+      setExpanded("");
+    } else {
+      setExpanded(month);
+      setSelectedMonth(month);
+    }
   };
 
+  const isExpanded = (month) => expanded === month;
+
+  const getMonthNumber = (monthName) => {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    return months.indexOf(monthName) + 1;
+  };
   return (
     <>
       <ScrollView>
@@ -29,21 +54,31 @@ const Activities = () => {
             <Text style={styles.eventText}>Subject: Coding School</Text>
             <Text style={styles.eventText}>Purpose: Training</Text>
           </View>
-          {/* <Calendar style={styles.calendar} /> */}
+
           <ScrollView>
             <View>
-              <List.Section>
+              {months.map((month) => (
                 <List.Accordion
                   style={styles.accordionStyle}
-                  title="September"
-                  id="month-accordion"
-                  left={(props) => <List.Icon {...props} icon="calendar" />}
-                  expanded={expanded}
-                  onPress={handlePress}
+                  key={month}
+                  title={month}
+                  id={`month-${month}-accordion`}
+                  expanded={isExpanded(month)}
+                  onPress={() => toggleAccordion(month)}
                 >
-                  {expanded && <Calendar />}
+                  {isExpanded(month) && (
+                    <Calendar
+                      style={styles.calendar}
+                      current={
+                        selectedMonth
+                          ? `2023-${getMonthNumber(selectedMonth)}-01`
+                          : undefined
+                      }
+                      hideArrows={true}
+                    />
+                  )}
                 </List.Accordion>
-              </List.Section>
+              ))}
             </View>
           </ScrollView>
         </View>
@@ -51,6 +86,20 @@ const Activities = () => {
     </>
   );
 };
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 const styles = StyleSheet.create({
   viewStyle: {
