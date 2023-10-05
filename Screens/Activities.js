@@ -40,6 +40,11 @@ const Activities = () => {
 
     return months.indexOf(monthName) + 1;
   };
+
+  const renderCustomHeader = () => {
+    return <View />;
+  };
+
   return (
     <>
       <ScrollView>
@@ -75,6 +80,8 @@ const Activities = () => {
                           : undefined
                       }
                       hideArrows={true}
+                      mon
+                      renderHeader={renderCustomHeader}
                     />
                   )}
                 </List.Accordion>
@@ -118,10 +125,10 @@ const styles = StyleSheet.create({
   calendar: {
     borderWidth: 2,
     borderColor: "#E34518",
-    marginTop: "20%",
+    marginTop: "10%",
     marginHorizontal: "6%",
     marginVertical: "6%",
-    padding: "6%",
+    padding: "4%",
     borderRadius: 15,
     backgroundColor: "black",
   },
