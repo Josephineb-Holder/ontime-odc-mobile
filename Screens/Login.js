@@ -145,7 +145,7 @@ const Login = ({ navigation }) => {
             </Pressable>
 
             <Button
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("DefaultHome")}
               title="Login"
               filled
               style={{

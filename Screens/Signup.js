@@ -219,7 +219,7 @@ const Signup = ({ navigation }) => {
             </Text>
 
             <Button
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("DefaultHome")}
               title="Sign Up"
               filled
               style={{
