@@ -87,7 +87,7 @@ const Welcome = ({ navigation }) => {
             <Text
               style={{
                 fontSize: 50,
-                fontWeight: 700,
+                fontWeight: "700",
                 color: COLORS.white,
                 top: 25,
               }}

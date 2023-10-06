@@ -6,15 +6,16 @@ import {
   Signup,
   Welcome,
   ForgotPassword,
-  Events,
   HomeScreen,
   Activities,
+  Events
 } from "./Screens/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import { Text } from "react-native";
 import COLORS from "./Constants/Colors";
+import EventsDetails from "./Screens/Events/EventsDetails";
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
@@ -38,7 +39,7 @@ const Tabs = () => {
           return <Ionicons name={iconName} size={size} color={iconColor} />;
         },
         tabBarLabelStyle: {
-          fontWeight: "700",
+          fontWeight: 700,
           fontSize: 15,
         },
       })}
@@ -50,7 +51,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                fontWeight: 700,
                 fontSize: 15,
               }}
             >
@@ -67,7 +68,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                //fontWeight: "700",
                 fontSize: 15,
               }}
             >
@@ -84,7 +85,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                fontWeight: 700,
                 fontSize: 15,
               }}
             >
@@ -129,7 +130,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Home"
+          name="DefaultHome"
           component={Tabs}
           options={{ headerShown: false }}
         />
@@ -137,6 +138,11 @@ export default function App() {
           name="Splash"
           component={Welcome}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+        name="EventsDetails"
+        component={EventsDetails}
+        options={{title: "Events Details"}}
         />
       </Stack.Navigator>
     </NavigationContainer>
