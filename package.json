@@ -32,7 +32,19 @@
     "typescript": "^5.1.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/react-native": "^0.72.2"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deviskalo/ontime-odc-mobile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Deviskalo/ontime-odc-mobile/issues"
+  },
+  "homepage": "https://github.com/Deviskalo/ontime-odc-mobile#readme",
+  "description": ""
 }
