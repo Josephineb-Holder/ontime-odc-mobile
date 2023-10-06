@@ -62,7 +62,7 @@ const ForgotPassword = ({ navigation }) => {
           <Text
             style={{
               fontSize: 16,
-              fontWeight: 400,
+              fontWeight: "400",
               marginVertical: 12,
               color: COLORS.black,
               top: hp("23%"),
