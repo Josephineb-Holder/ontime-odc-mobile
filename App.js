@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -6,30 +6,30 @@ import {
   Signup,
   Welcome,
   ForgotPassword,
-  Events,
   HomeScreen,
   Activities,
+  Events
 } from "./Screens/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-
 import { Text } from "react-native";
 import COLORS from "./Constants/Colors";
+import EventsDetails from "./Screens/Events/EventsDetails";
 
 const Tab = createBottomTabNavigator();
+
 const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
+          let iconColor = focused ? COLORS.primary : color;
 
-          if (route.name === "Home") {
+          if (route.name === "TabHome") {
             iconName = focused ? "home" : "home-outline";
-            iconColor = focused ? COLORS.primary : color;
           } else if (route.name === "Events") {
             iconName = focused ? "calendar" : "calendar-outline";
-            iconColor = focused ? COLORS.primary : color;
           } else if (route.name === "Activities") {
             iconName = focused ? "list" : "list-outline";
             iconColor = focused ? "#dc4d01" : color;
@@ -38,19 +38,19 @@ const Tabs = () => {
           return <Ionicons name={iconName} size={size} color={iconColor} />;
         },
         tabBarLabelStyle: {
-          fontWeight: "700",
+          fontWeight: 700,
           fontSize: 15,
         },
       })}
     >
       <Tab.Screen
-        name="Home"
+        name="TabHome"
         options={{
           tabBarLabel: ({ focused, color }) => (
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                fontWeight: 700,
                 fontSize: 15,
               }}
             >
@@ -67,7 +67,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                //fontWeight: "700",
                 fontSize: 15,
               }}
             >
@@ -84,7 +84,7 @@ const Tabs = () => {
             <Text
               style={{
                 color: focused ? COLORS.primary : COLORS.black,
-                fontWeight: "700",
+                fontWeight: 700,
                 fontSize: 15,
               }}
             >
@@ -99,10 +99,11 @@ const Tabs = () => {
 };
 
 const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen
           name="Welcome"
           component={Welcome}
@@ -129,15 +130,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Home"
+          name="DefaultHome"
           component={Tabs}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Splash"
-          component={Welcome}
-          options={{ headerShown: false }}
-        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
