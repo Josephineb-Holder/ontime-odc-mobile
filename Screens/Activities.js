@@ -27,6 +27,7 @@ const Activities = () => {
     } else {
       setExpanded(month);
       setSelectedMonth(month);
+      setSelectedDate(null);
     }
   };
 
@@ -68,22 +69,22 @@ const Activities = () => {
   const isExpanded = (month) => expanded === month;
 
   const getMonthNumber = (monthName) => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
+    const months = {
+      January: "01",
+      February: "02",
+      March: "03",
+      April: "04",
+      May: "05",
+      June: "06",
+      July: "07",
+      August: "08",
+      September: "09",
+      October: "10",
+      November: "11",
+      December: "12",
+    };
 
-    return months.indexOf(monthName) + 1;
+    return months[monthName];
   };
 
   const renderCustomHeader = () => {
@@ -122,15 +123,12 @@ const Activities = () => {
                       current={
                         selectedMonth
                           ? `2023-${getMonthNumber(selectedMonth)}-01`
-                          : undefined
+                          : null
                       }
                       hideArrows={true}
                       mon
                       renderHeader={renderCustomHeader}
                       onDayPress={handleDayPress}
-                      // markedDates={{
-                      //   [selectedDate]: { selected: true },
-                      // }}
                       markedDates={markedDates}
                       theme={{
                         backgroundColor: "white",
@@ -191,8 +189,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 2,
     borderColor: "#E34518",
+    backgroundColor: "#E34518",
   },
   eventText: {
+    fontSize: "17",
+    color: "white",
     paddingLeft: 15,
   },
   calendar: {
