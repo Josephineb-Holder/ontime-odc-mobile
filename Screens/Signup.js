@@ -46,7 +46,9 @@ const Signup = ({ navigation }) => {
           </View>
 
           <View style={{ marginBottom: 12 }}>
-            <Text style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}>
+            <Text
+              style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
+            >
               Email address
             </Text>
 
@@ -74,7 +76,7 @@ const Signup = ({ navigation }) => {
           <View>
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Full Name
               </Text>
@@ -101,7 +103,7 @@ const Signup = ({ navigation }) => {
             </View>
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Phone Number
               </Text>
@@ -130,7 +132,7 @@ const Signup = ({ navigation }) => {
 
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Address
               </Text>
@@ -159,7 +161,7 @@ const Signup = ({ navigation }) => {
 
             <View style={{ marginBottom: 12 }}>
               <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
+                style={{ fontSize: 16, fontWeight: "400", marginVertical: 8 }}
               >
                 Password
               </Text>
@@ -199,18 +201,22 @@ const Signup = ({ navigation }) => {
 
           <View
             style={{
-              flexDirection: "row",
+              flex: 1,
               height: hp("11%"),
               width: wp("82%"),
+              left: wp("70%"),
+              bottom: hp("5%"),
             }}
           >
             <Checkbox
-              style={{ marginRight: 8 }}
+              style={{ right: wp("70%"), top: hp("5%") }}
               value={isChecked}
               onValueChange={setIsChecked}
               color={isChecked ? COLORS.primary : undefined}
             />
-            <Text>I agreed to the terms and conditions.</Text>
+            <Text style={{ right: wp("61"), top: hp("2.5%") }}>
+              I agreed to the terms and conditions.
+            </Text>
 
             <Button
               onPress={() => navigation.navigate("DefaultHome")}
@@ -220,7 +226,7 @@ const Signup = ({ navigation }) => {
                 marginTop: 18,
                 marginBottom: wp("2%"),
                 width: "100%",
-                right: wp("66.7%"),
+                right: wp("70%"),
                 top: 30,
               }}
             />

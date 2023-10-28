@@ -22,21 +22,21 @@ const Login = ({ navigation }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-      <ScrollView style={{ height: hp("50%") }}>
-        <View style={{ flex: 1, marginHorizontal: 22 }}>
+    <ScrollView style={{ flex: 1, backgroundColor: COLORS.white }}>
+      <SafeAreaView style={{ marginVertical: hp("5%"), bottom: "5%" }}>
+        <View style={{ flex: 1, marginHorizontal: wp("6%") }}>
           <Image
             source={require("../assets/ontimelogo.png")}
             style={{
-              height: 40,
-              width: 200,
-              position: "absolute",
-              top: 100,
-              left: 75,
+              height: "5%",
+              width: "50%",
+              position: "relative",
+              top: "15%",
+              left: "25%",
             }}
           />
 
-          <View style={{ marginVertical: 110 }}>
+          <View style={{ marginVertical: "25%" }}>
             <Text
               style={{
                 fontSize: 22,
@@ -48,13 +48,15 @@ const Login = ({ navigation }) => {
             >
               Hey, Welcome back!
             </Text>
-            <Text style={{ fontSize: 18, top: 60 }}>
+            <Text style={{ fontSize: 18, top: 65 }}>
               Seems like you've missed alot
             </Text>
           </View>
 
           <View style={{ marginBottom: 12 }}>
-            <Text style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}>
+            <Text
+              style={{ fontSize: 16, fontWeight: "400", marginVertical: "4%" }}
+            >
               Email address
             </Text>
 
@@ -79,55 +81,54 @@ const Login = ({ navigation }) => {
             </View>
           </View>
 
-          <View>
-            <View style={{ marginBottom: 12 }}>
-              <Text
-                style={{ fontSize: 16, fontWeight: 400, marginVertical: 8 }}
-              >
-                Password
-              </Text>
+          <View style={{ marginBottom: "4%" }}>
+            <Text
+              style={{ fontSize: 16, fontWeight: "400", marginVertical: "4%" }}
+            >
+              Password
+            </Text>
 
-              <View
-                style={{
-                  width: "100%",
-                  height: 48,
-                  borderColor: COLORS.black,
-                  borderWidth: 1,
-                  borderRadius: 8,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  paddingLeft: 22,
-                }}
-              >
-                <TextInput
-                  placeholder="Enter your password"
-                  placeholderTextColor={COLORS.gray}
-                  secureTextEntry={isPasswordShown}
-                  style={{ width: "100%" }}
-                />
+            <View
+              style={{
+                width: "100%",
+                height: 48,
+                borderColor: COLORS.black,
+                borderWidth: 1,
+                borderRadius: 8,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <TextInput
+                placeholder="Enter your password"
+                placeholderTextColor={COLORS.gray}
+                secureTextEntry={isPasswordShown}
+                style={{ width: "100%", paddingLeft: 20 }}
+              />
 
-                <TouchableOpacity
-                  style={{ position: "absolute", right: 12 }}
-                  onPress={() => setIsPasswordShown(!isPasswordShown)}
-                >
-                  {isPasswordShown == true ? (
-                    <Ionicons name="eye-off" size={24} color={COLORS.black} />
-                  ) : (
-                    <Ionicons name="eye" size={24} color={COLORS.black} />
-                  )}
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity
+                style={{ position: "absolute", right: 12 }}
+                onPress={() => setIsPasswordShown(!isPasswordShown)}
+              >
+                {isPasswordShown == true ? (
+                  <Ionicons name="eye-off" size={24} color={COLORS.black} />
+                ) : (
+                  <Ionicons name="eye" size={24} color={COLORS.black} />
+                )}
+              </TouchableOpacity>
             </View>
           </View>
 
-          <View style={{ flexDirection: "row", marginVertical: hp("1%") }}>
+          <View style={{ flex: 1, top: hp("0.4%"), width: "100%" }}>
             <Checkbox
-              style={{ marginRight: 8 }}
+              style={{ marginRight: "5%" }}
               value={isChecked}
               onValueChange={setIsChecked}
               color={isChecked ? COLORS.primary : undefined}
             />
-            <Text>Remember Me.</Text>
+            <Text style={{ left: wp("8%"), bottom: hp("2.5%") }}>
+              Remember Me.
+            </Text>
 
             <Pressable onPress={() => navigation.navigate("Forgot Password")}>
               <Text
@@ -135,8 +136,8 @@ const Login = ({ navigation }) => {
                   fontSize: 16,
                   color: COLORS.primary,
                   fontWeight: "bold",
-                  marginLeft: wp("24.5%"),
-                  bottom: 1,
+                  left: wp("52%"),
+                  bottom: hp("5%"),
                 }}
               >
                 Forgot Password?
@@ -148,10 +149,9 @@ const Login = ({ navigation }) => {
               title="Login"
               filled
               style={{
-                marginTop: hp("4%"),
-                width: "100%",
-                right: wp("89%"),
-                top: 50,
+                width: wp("90%"),
+                right: wp("1%"),
+                top: hp(".5%"),
               }}
             />
           </View>
@@ -159,11 +159,11 @@ const Login = ({ navigation }) => {
             style={{
               flexDirection: "row",
               justifyContent: "center",
-              marginVertical: 30,
+              marginVertical: "10%",
             }}
           >
             <Text
-              style={{ fontSize: 16, color: COLORS.black, top: hp("3.7%") }}
+              style={{ fontSize: 16, color: COLORS.black, bottom: hp("1.5%") }}
             >
               Don't have an account?
             </Text>
@@ -174,7 +174,7 @@ const Login = ({ navigation }) => {
                   color: COLORS.primary,
                   fontWeight: "bold",
                   marginLeft: wp("2%"),
-                  top: 30,
+                  bottom: hp("1.5%"),
                 }}
               >
                 Sign Up
@@ -182,8 +182,8 @@ const Login = ({ navigation }) => {
             </Pressable>
           </View>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
