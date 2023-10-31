@@ -20,7 +20,7 @@ function EventsDetails({ route }) {
           </View>
           <View style={styles.eventsInfo}>
             <Text style={styles.eventName}>{eventsDetails?.eventName}</Text>
-            <Text style={styles.description}>Description: {eventsDetails?.description}</Text>
+            <Text style={styles.description}>Description {eventsDetails?.description}</Text>
             <Text style={styles.time}>Time:  {eventsDetails?.time}</Text>
             <Text style={styles.duration}>Duration: {eventsDetails?.duration}</Text>
             <Text style={styles.days}>{eventsDetails?.days}</Text>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   eventName: {
     fontSize: 25,
-    fontWeight: 700,
+    fontWeight: '700',
     textAlign: "center",
     marginTop: 20,
     color: "black",
