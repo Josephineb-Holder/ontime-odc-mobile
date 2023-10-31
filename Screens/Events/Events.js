@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Searchbar } from 'react-native-paper';
 import { ImageBackground } from 'react-native';
 import SearchFilter from './SearchFilter';
+import EventsDetails from './EventsDetails';
+
 // import SearchFilter from './SearchFilter';
 
 
