@@ -135,6 +135,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
+      <Stack.Screen
+      name="EventsDetails"
+      component={EventsDetails}
+      options={{ title: "Events Details"}}
+      />
       </Stack.Navigator>
     </NavigationContainer>
   );
