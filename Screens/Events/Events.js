@@ -1,55 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image, SafeAreaView, FlatList, ScrollView, StyleSheet, StatusBar, Touchable, TouchableOpacity } from 'react-native';
-import { Dropdown } from 'react-native-element-dropdown';
-import { eventsData } from './EventsData';
-import { useNavigation } from '@react-navigation/native';
-import { Searchbar } from 'react-native-paper';
-import { ImageBackground } from 'react-native';
-import SearchFilter from './SearchFilter';
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  StatusBar,
+  Touchable,
+  TouchableOpacity,
+} from "react-native";
+import { Dropdown } from "react-native-element-dropdown";
+import { eventsData } from "./EventsData";
+import { useNavigation } from "@react-navigation/native";
+import { Searchbar } from "react-native-paper";
+import { ImageBackground } from "react-native";
+import SearchFilter from "./SearchFilter";
 // import SearchFilter from './SearchFilter';
-
-
 
 const SelectMonths = () => {
   //const [search, setSearch] = useState('');
   const [selectedMonths, setSelectedMonths] = useState("September");
   const [showArrow, setShowArrow] = useState(false);
-  const [filteredArr, setFilteredArr] = useState(eventsData[selectedMonths] || []);
-
+  const [filteredArr, setFilteredArr] = useState(
+    eventsData[selectedMonths] || []
+  );
 
   const eventmonths = eventsData;
   // console.log(eventmonths.September)
 
-  const months = Object.keys(eventmonths)
+  const months = Object.keys(eventmonths);
   // console.log(eventmonths.November);
 
-  const SearchBar = ({setFilteredArr, filteredArr}) => {
-    const [searchQuery, setSearchQuery] = React.useState('');
-    const [searchItems, setSearchItems] = React.useState('');
+  const SearchBar = ({ setFilteredArr, filteredArr }) => {
+    const [searchQuery, setSearchQuery] = React.useState("");
+    const [searchItems, setSearchItems] = React.useState("");
     // const text = query => setSearchQuery(query);
 
-    const onChangeSearch = query => {
+    const onChangeSearch = (query) => {
       try {
-        setFilteredArr(filteredArr.filter(item => item.eventName.includes(query)))
+        setFilteredArr(
+          filteredArr.filter((item) => item.eventName.includes(query))
+        );
         return setSearchQuery(query);
       } catch (error) {
-        console.log({ error })
+        console.log({ error });
       }
-    }
-
+    };
 
     return (
       <Searchbar
         placeholder="Search by Courses"
         onChangeText={onChangeSearch}
         value={searchQuery}
-        style={{ borderColor: '#FF7900', backgroundColor: 'white', borderWidth: 2, width: "100%" }}
+        style={{
+          borderColor: "#FF7900",
+          backgroundColor: "white",
+          borderWidth: 2,
+          width: "100%",
+        }}
       />
-    )
-
-
+    );
   };
-
 
   const toggleDropdown = () => {
     setShowArrow(!showArrow);
@@ -70,18 +83,24 @@ const SelectMonths = () => {
 
   // console.log({month: eventmonths[selectedMonths]})
 
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topBar}>
         <View style={styles.barItem}>
-          <SearchBar setFilteredArr={setFilteredArr} filteredArr={filteredArr} />
-
+          <SearchBar
+            setFilteredArr={setFilteredArr}
+            filteredArr={filteredArr}
+          />
         </View>
 
         <View style={styles.barItem}>
-          <TouchableOpacity onPress={toggleDropdown} style={styles.dropDownItems}>
-            <Text style={styles.headerText}>{selectedMonths || 'Select months'}</Text>
+          <TouchableOpacity
+            onPress={toggleDropdown}
+            style={styles.dropDownItems}
+          >
+            <Text style={styles.headerText}>
+              {selectedMonths || "Select months"}
+            </Text>
             <Text style={styles.hamburgerIcon}>{showArrow ? "▲" : "▼"}</Text>
           </TouchableOpacity>
         </View>
@@ -89,65 +108,69 @@ const SelectMonths = () => {
 
       {showArrow && (
         <View style={styles}>
-
           {months.map((ele) => (
             <TouchableOpacity key={ele} onPress={() => selectMonths(ele)}>
               <Text style={styles.dropdownmonths}>{ele}</Text>
             </TouchableOpacity>
           ))}
         </View>
-
       )}
       <View>
-        <FlatList data={eventmonths[selectedMonths]}
+        <FlatList
+          data={eventmonths[selectedMonths]}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity style={{ flex: 1, padding: 10, width: '100%', marginBottom: 10 }} onPress={() => monthsPress(item)}>
-
-                <ImageBackground blurRadius={4} style={{
-                  borderColor: "orange",
-                  marginBottom: 8,
-                  padding: 30,
-                  borderWidth: 2,
-                  borderRadius: 6,
+              <TouchableOpacity
+                style={{
                   flex: 1,
-                  resizeMode: 'cover',
-                  marginHorizontal: 10,
-
-
+                  padding: 10,
+                  width: "100%",
+                  marginBottom: 10,
                 }}
+                onPress={() => monthsPress(item)}
+              >
+                <ImageBackground
+                  blurRadius={1}
+                  style={{
+                    borderColor: "orange",
+                    marginBottom: 8,
+                    padding: 30,
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    flex: 1,
+                    resizeMode: "cover",
+                    marginHorizontal: 10,
+                  }}
                   source={{ uri: item.photo }}
                 >
-                  <Text style={{
-                    color: 'white',
-                    fontSize: 20,
-                    lineHeight: 30,
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    // backgroundColor: '#000000c0',
-                  }}>{item.eventName}{'\n'}
-                    {item.time}{'\n'}{item.area}
+                  <Text
+                    style={{
+                      color: "white",
+                      fontSize: 20,
+                      lineHeight: 30,
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      // backgroundColor: '#000000c0',
+                    }}
+                  >
+                    {item.eventName}
+                    {"\n"}
+                    {item.time}
+                    {"\n"}
+                    {item.area}
                   </Text>
                 </ImageBackground>
-
               </TouchableOpacity>
-
-            )
+            );
           }}
-          keyExtractor={item => item.eventName}
+          keyExtractor={(item) => item.eventName}
         />
-
       </View>
 
       <View />
-
-
     </SafeAreaView>
-
   );
-
-}
-
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -157,20 +180,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   topBar: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     gap: 40,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     alignItems: "center",
-    flexWrap: 'nowrap',
+    flexWrap: "nowrap",
     marginHorizontal: 8,
     marginVertical: 10,
   },
 
   barItem: {
-    flex: 2
+    flex: 2,
   },
-
 
   hamburgerIcon: {
     marginHorizontal: 0,
@@ -198,15 +220,14 @@ const styles = StyleSheet.create({
     elevation: 4,
     marginVertical: 10,
     // marginHorizontal: 80,
-    width: "100%"
-
+    width: "100%",
   },
 
   dropdownmonths: {
     marginTop: 5,
     borderWidth: 1,
-    shadowColor: 'white',
-    borderColor: '#FF7900',
+    shadowColor: "white",
+    borderColor: "#FF7900",
     borderRadius: 20,
     padding: 10,
     fontSize: 20,
@@ -214,7 +235,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     marginHorizontal: 86,
   },
-
 });
 
 export default SelectMonths;
