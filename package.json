@@ -20,7 +20,7 @@
     "expo-updates": "~0.15.6",
     "lodash.filter": "^4.6.0",
     "lottie-react-native": "5.1.4",
-    "react-native": "0.70.14",
+    "react-native": "0.70.8",
     "react-native-calendars": "^1.1301.0",
     "react-native-element-dropdown": "^2.10.0",
     "react-native-elements": "^3.4.3",

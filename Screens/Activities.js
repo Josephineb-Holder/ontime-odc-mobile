@@ -2,10 +2,12 @@ import React from "react";
 import {
   View,
   Text,
+  Image,
   StyleSheet,
   Modal,
   Button,
   ScrollView,
+  ImageBackground,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -13,12 +15,13 @@ import { Calendar } from "react-native-calendars";
 import { useState } from "react";
 import { List } from "react-native-paper";
 import COLORS from "../Constants/Colors";
+import { BackgroundImage } from "react-native-elements/dist/config";
 
 const Activities = () => {
   const [expanded, setExpanded] = useState("");
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [eventDetails, setEventDetails] = useState(null);
+  const [eventDetails, setEventDetails] = useState({});
   const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleAccordion = (month) => {
@@ -31,14 +34,70 @@ const Activities = () => {
     }
   };
 
-  const eventsDays = {
-    "2023-01-05": "Job readiness Training",
-    "2023-01-15": "React Native Coding Class",
-    "2023-01-20": "Business Development Class",
-    "2023-10-20": "Business Development Class",
-    "2023-10-10": "UI,UX Design Class",
-    "2023-10-5": "Techies Meet-Up",
-    "2023-10-27": "Think Link a boss Trianing",
+  const eventsData = {
+    // "2023-01-05": "Job readiness Training",
+    // "2023-01-15": "React Native Coding Class",
+    // "2023-01-20": "Business Development Class",
+    // "2023-10-20": "Business Development Class",
+    // "2023-10-10": "UI,UX Design Class",
+    // "2023-10-5": "Techies Meet-Up",
+    // "2023-10-27": "Think Link a boss Trianing",
+    "2023-01-05": {
+      title: "Job readiness Training",
+      description: "A training program for job readiness.",
+      image: require("../assets/python.jpg"),
+      time: "12:40 - 1:35 pm",
+      duration: "Oct 10  Dec-20",
+      room: "Fab Lab",
+    },
+    "2023-01-15": {
+      title: "React Native Coding Class",
+      description: "Learn React Native development.",
+      image: require("../assets/python.jpg"),
+      time: "10:00 am - 12:30 pm",
+      duration: "Nov 5 - Dec 15",
+      room: "Tech Hub",
+    },
+    "2023-01-20": {
+      title: "Job readiness Training",
+      description: "A training program for job readiness.",
+      image: require("../assets/python.jpg"),
+      time: "12:30 - 1:30 pm",
+      duration: "Oct 10  Dec-20",
+      room: "Fab Lab",
+    },
+    "2023-10-20": {
+      title: "Job readiness Training",
+      description: "A training program for job readiness.",
+      image: require("../assets/python.jpg"),
+      time: "12:30 - 1:30 pm",
+      duration: "Oct 10  Dec-20",
+      room: "Fab Lab",
+    },
+    "2023-10-10": {
+      title: "Job readiness Training",
+      description: "A training program for job readiness.",
+      image: require("../assets/python.jpg"),
+      time: "12:30 - 1:30 pm",
+      duration: "Oct 10  Dec-20",
+      room: "Fab Lab",
+    },
+    "2023-10-5": {
+      title: "Job readiness Training",
+      description: "A training program for job readiness.",
+      image: require("../assets/python.jpg"),
+      time: "12:30 - 1:30 pm",
+      duration: "Oct 10 - Dec-20",
+      room: "Fab Lab",
+    },
+    "2023-10-27": {
+      title: "Job readiness Training",
+      description: "A training program for job readiness.",
+      image: require("../assets/python.jpg"),
+      time: "12:30 - 1:30 pm",
+      duration: "Oct 10  Dec-20",
+      room: "Fab Lab",
+    },
   };
 
   const markedDates = {};
@@ -50,18 +109,27 @@ const Activities = () => {
     // dotColor: "blue",
   };
 
-  for (const date in eventsDays) {
+  for (const date in eventsData) {
     markedDates[date] = {
       marked: true,
       dotColor: "#E34518",
     };
   }
 
+  // const handleDayPress = (day) => {
+  //   const event = eventsDays[day.dateString];
+  //   if (event) {
+  //     setSelectedDate(day.dateString);
+  //     setEventDetails(event);
+  //     setModalVisible(true);
+  //   }
+  // };
+
   const handleDayPress = (day) => {
-    const event = eventsDays[day.dateString];
-    if (event) {
+    const eventData = eventsData[day.dateString];
+    if (eventData) {
       setSelectedDate(day.dateString);
-      setEventDetails(event);
+      setEventDetails(eventData);
       setModalVisible(true);
     }
   };
@@ -146,17 +214,44 @@ const Activities = () => {
               animationType="slide"
               onRequestClose={() => setModalVisible(false)}
             >
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Text>Event Details for {selectedDate}</Text>
-                <Text>{eventDetails}</Text>
-                <Button title="Close" onPress={() => setModalVisible(false)} />
-              </View>
+              <ScrollView>
+                <View
+                  style={{
+                    // flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginTop: "50%",
+                  }}
+                >
+                  {/* <Image
+                    source={eventDetails.image}
+                    style={styles.eventImage}
+                  />
+                  <Text>Event Details for {selectedDate}</Text>
+                  <Text>{eventDetails}</Text> */}
+                  {/* <ImageBackground
+                    blurRadius={4}
+                    style={styles.eventBackgroundimg}
+                    source={eventDetails.image}
+                  /> */}
+                  <Image
+                    source={eventDetails.image}
+                    style={styles.eventImage}
+                  />
+                  <Text>Event Details for {selectedDate}</Text>
+                  <Text>Title: {eventDetails.title}</Text>
+                  <Text>Description: {eventDetails.description}</Text>
+                  <Text>Time: {eventDetails.time}</Text>
+                  <Text>Duration: {eventDetails.duration}</Text>
+                  <Text>Room: {eventDetails.room}</Text>
+
+                  <Button
+                    title="Close"
+                    onPress={() => setModalVisible(false)}
+                    style={styles.modalbutton}
+                  />
+                </View>
+              </ScrollView>
             </Modal>
           </ScrollView>
         </View>
@@ -220,6 +315,32 @@ const styles = StyleSheet.create({
   },
   monthTitle: {
     color: "#E34518",
+  },
+  eventBackgroundimg: {
+    borderColor: "orange",
+    marginBottom: "8%",
+    // padding: 30,
+    width: "100%",
+    height: "100%",
+    borderWidth: 2,
+    borderRadius: 6,
+    // flex: 1,
+    resizeMode: "cover",
+    // marginVertical: "10%",
+    // marginHorizontal: "10%",
+  },
+  eventImage: {
+    width: "87%",
+    height: "100%",
+    borderColor: "#E34518",
+    marginBottom: "8%",
+    borderWidth: 3,
+    borderRadius: 6,
+  },
+  modalbutton: {
+    borderColor: "#E34518",
+    borderWidth: 3,
+    borderRadius: 6,
   },
 });
 
