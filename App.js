@@ -134,16 +134,6 @@ export default function App() {
           component={Tabs}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Splash"
-          component={Welcome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="EventsDetails"
-          component={EventsDetails}
-          options={{ title: "Events Details" }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );
